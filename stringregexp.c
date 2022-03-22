@@ -1,10 +1,10 @@
  /* 
 -----------------------------------------------------------------------------------
  
-            stringregexp Vers ..........: 0.1
+            stringregexp Vers ..................: 0.1
             Author .............................: Stefano Cerbioni
-            mail ..................................: stfn77@gmail.com	
-            Script Function ..............: regular expression
+            mail ...............................: stfn77@gmail.com	
+            Script Function ....................: regular expression
  
 -----------------------------------------------------------------------------------
  */ 
@@ -57,8 +57,6 @@ void match_all(regex_t *p, char *sz) {
         printf("\"%s\" does not contain a match\n", sz);
     }
 
-     //printf("Match1: %s\n", str);
-	 //free(str);
 }
 
 RING_FUNC(ring_stringregexp)
@@ -97,9 +95,6 @@ RING_FUNC(ring_stringregexp)
     //  -----------------------------------------------------------------------------------
 
     if( strcmp(StyleRgXp, "c") == 0){
-      
-	//int argc;
-	//char* argv;
     int r;
     regex_t p;
     r = regcomp(&p, PatterN , 0); //"[[:alnum:]]*k[[:alnum:]]*"
@@ -111,8 +106,6 @@ RING_FUNC(ring_stringregexp)
 
    
 	regfree(&p);
-	// printf("Match2: %s\n", str);
-	
 	RING_API_RETSTRING(str);
 	free(str);
     }
@@ -127,18 +120,9 @@ RING_FUNC(ring_stringregexp)
         int ovector[OVECCOUNT];
         int rc, i;
         char *substring_start ;
-        
-        //char src[] = "111 <title>Hello World</title> 222";
-        //char pattern[] = "<title>(.*)</title>";
-               
-       // printf("String : %s/n", TesTsSubj);
-       // printf("Pattern: %s/n", PatterN);
-        
-
         re = pcre_compile(PatterN, 0, &error, &erroffset, NULL);
         if (re == NULL) {
                 printf("PCRE compilation failed at offset %d: %s/n", erroffset, error);
-                //return 1;
         }
 
 
@@ -147,24 +131,14 @@ RING_FUNC(ring_stringregexp)
         if (rc < 0) {
                 if (rc == PCRE_ERROR_NOMATCH) substring_start =("Sorry, no match .../n"); //printf("Sorry, no match .../n");
                 else   substring_start = ("Matching error %d/n");// printf("Matching error %d/n", rc);
-                //free(re);
-                //return 1;
         }
-
-        //printf("/nOK, has matched .../n/n");
-
         for (i = 1; i < rc; i++) {
                 substring_start = ((char *)TesTsSubj) + ovector[2*i];
                 int substring_length = ovector[2*i+1] - ovector[2*i];
-                //printf("%2d: %.*s/n", i, substring_length, substring_start);
-               // printf("Pattern: %s/n", substring_start);
                substring_start[substring_length] = '\0';
         }
         RING_API_RETSTRING(substring_start);    
-      //  free(re);
-        // ******************************************************************************************
-
-        
+        // ******************************************************************************************       
     }
     
     //  -----------------------------------------------------------------------------------
@@ -179,10 +153,8 @@ RING_FUNC(ring_stringregexp)
             result = sscanf(TesTsSubj, PatterN, &id, &len, temp);
 
             if (result == 3) {
-                  //printf("id: %d, length: %d, content: %s", id, len, temp);
                   RING_API_RETSTRING(temp);
             } else {
-                  //printf("match failed.");
                   RING_API_RETSTRING("match failed.");
                }
         }
@@ -190,21 +162,7 @@ RING_FUNC(ring_stringregexp)
 
 }
 
-
 RING_API void ringlib_init(RingState *pRingState)
 { 
     ring_vm_funcregister("stringregexp",ring_stringregexp);
 }
-
-
-        /*
-       printf("%s\n", TesTsSubj);
-       printf("%s\n", PatterN);
-       char CrossSignaTure[200] = {0};
-       //sscanf(TesTsSubj,PatterN,scanfResult);
-       sscanf(TesTsSubj,"%*[^:]:%d,%*[^,],%d,%[^\r]",CrossSignaTure);
-       printf("%s\n", CrossSignaTure);
-       */
-
-    //char STR[] = "+PUBLISH:0,/a1FgtnpfTdI/deviceA/get,12, hello world\r\n";
-    
