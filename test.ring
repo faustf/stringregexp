@@ -8,8 +8,3 @@ load "stringregexp.ring"
 zio=StringRegExp('p','{"timezone":"UTC","serverTime":1644393841460,"rateLimits":','[a-zA-Z0-9_.]+','0') // perl style with PCRE
 //zio=StringRegExp("c","mik(ko mi)kko","\((.*)\)"."0")                         // c style  with regex.h
 ?zio
-/*
-zigalleggiare
-o=StringRegExp("First (helloWorld): last","%*[^(](%[^)]%*[^\n]")
-?zio
-*/
