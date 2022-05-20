@@ -21,14 +21,17 @@ aPackageInfo = [
 		]
 	],
 	:files = 	[
-
+		"ISTRUZIONI.TXT",
+		"README.md",
+		"README4WIN.TXT"
 	],
 	:ringfolderfiles = 	[
-		"extensions/stringregexp/stringregexp.c"
-		"extensions/stringregexp/test.ring" 
-		"extensions/stringregexp/buildgcc.sh" 
-		"extensions/stringregexp/README4WIN.txt"
-
+		"extensions/stringregexp/stringregexp.c",
+		"extensions/stringregexp/test.ring",
+		"extensions/stringregexp/buildgcc.sh",
+		"extensions/stringregexp/README4WIN.txt",
+		"extensions/stringregexp/README.md",
+		"extensions/stringregexp/ISTRUZIONI.TXT",
 
 	],
 	:windowsfiles = 	[
