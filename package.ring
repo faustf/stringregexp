@@ -31,8 +31,7 @@ aPackageInfo = [
 		"extensions/stringregexp/buildgcc.sh",
 		"extensions/stringregexp/README4WIN.txt",
 		"extensions/stringregexp/README.md",
-		"extensions/stringregexp/ISTRUZIONI.TXT",
-
+		"extensions/stringregexp/ISTRUZIONI.TXT"
 	],
 	:windowsfiles = 	[
 
